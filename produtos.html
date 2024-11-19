@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Big Cards</title>
+    <style>
+    header {
+        background-color: #e60012;
+        color: white;
+        padding: 30px;
+        text-align: center;
+        font-size: 36px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        opacity: 0; /* Inicialmente invisível */
+        transform: translateY(-20px); /* Começa ligeiramente acima */
+        animation: slideIn 1s forwards; /* Aplica a animação */
+    }
+
+    /* Definindo a animação */
+    @keyframes slideIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    header h1 {
+        animation: fadeInText 2s ease-in-out forwards;
+    }
+
+    /* Animação para o texto */
+    @keyframes fadeInText {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+        /* Estilo do Body */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo do Nav */
+        nav {
+            background-color: #111;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        nav a {
+            color: white;
+            padding: 20px 30px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            position: relative;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: color 0.3s ease, padding 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e60012; /* Cor do hover */
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #e60012;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        window.onscroll = function() {changeNavBackground()};
+
+        function changeNavBackground() {
+            var nav = document.querySelector("nav");
+            if (window.scrollY > 50) {
+                nav.style.backgroundColor = "#222"; /* Cor mais escura */
+            } else {
+                nav.style.backgroundColor = "#111"; /* Cor original */
+            }
+        }
+
+
+
+        /* Layout de Produtos */
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .product-item {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .product-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-item h3 {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .product-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #e60012;
+        }
+
+        .product-item button {
+            background-color: #e60012;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-item button:hover {
+            background-color: #a50010;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .anos {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Big Cards</h1>
+    <p>Explore nossos produtos</p>
+</header>
+
+<!-- Nav -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="produtos.html" class="active">Produtos</a>
+    <a href="contatos.html">Contatos</a>
+</nav>
+
+<section class="anos">
+    <div class="product-header">
+        <h3>-Cartas Raras</h3>
+    </div>
+</section>
+<section class="product-list">
+    <div class="product-item">
+        <a href="produto1.html">
+            <img src="gabriel/carta2.jpg" alt="Carta Pokémon 1">
+            <h3>Drednaw raro</h3>
+            <p>Preço: R$8,70</p>
+        </a>
+    </div>
+    <div class="product-item">
+        <a href="produto2.html">
+            <img src="gabriel/carta1.jpg" alt="Carta Pokémon 2">
+            <h3>Chien-Pao raro</h3>
+            <p>Preço: R$12,70</p>
+        </a>
+    </div>
+    <div class="product-item">
+        <a href="produto3.html">
+            <img src="gabriel/carta3.jpg" alt="Carta Pokémon 3">
+            <h3>Garganacl FULL ART</h3>
+            <p>Preço: R$23,70</p>
+        </a>
+    </div>
+    <div class="product-item">
+        <a href="produto4.html">
+            <img src="gabriel/carta4.jpg" alt="Carta Pokémon 4">
+            <h3>Pawmi SHINY</h3>
+            <p>Preço: R$23,20</p>
+        </a>
+    </div>
+    <div class="product-item">
+        <a href="produto5.html">
+            <img src="gabriel/energia1.jpg" alt="Carta Pokémon 5">
+            <h3>Energia de água rara 2013</h3>
+            <p>Preço: R$25,00</p>
+        </a>
+    </div>
+    <div class="product-item">
+        <a href="produto6.html">
+            <img src="gabriel/energia2.jpg" alt="Carta Pokémon 6">
+            <h3>Energia dark rara 2013</h3>
+            <p>Preço: R$25,00</p>
+        </a>
+    </div>
+</section>
+
+<!-- Cartas de 25 Anos -->
+<section class="anos">
+    <div class="product-header">
+        <img src="gabriel/25anos.webp" alt="Cartas de 25 anos" width="100">
+        <h3>-Cartas de 25 anos</h3>
+    </div>
+</section>
+
+<section class="product-list">
+    <!-- Produto 7 - Solgaleo 25 anos -->
+    <div class="product-item">
+        <a href="produto7.html">
+        <img src="gabriel/solgaleo.jpg" alt="Carta Pokémon especial" widht="300">
+        <h3>Todas as evoluções do Solgaleo DE 25 ANOS!</h3>
+        <p>Preço: R$25,00</p>
+        <p>(Inclui Cosmoen 25 anos, Cosmog 25 anos e Solgaleo 25 anos)</p>
+        <button>Adicionar ao Carrinho</button>
+        </a>
+    </div>
+
+    <!-- Produto 8 - Pikachu VMAX 25 anos -->
+    <div class="product-item">
+        <a href="produto8.html">
+        <img src="gabriel/Carta25.jpg" alt="Carta Pokémon especial" widht="300">
+        <h3>Pikachu VMAX de 25 anos</h3>
+        <p>Preço: <span style="text-decoration: line-through;">R$27,00</span> Promoção! R$25,00</p>
+        <button>Adicionar ao Carrinho</button>
+        </a>
+    </div>
+
+    <!-- Produto 9 - Reshiram 25 anos -->
+    <div class="product-item">
+        <a href="produto9.html">
+        <img src="gabriel/Carta25(2).jpg" alt="Carta Pokémon especial" widht="300">
+        <h3>Reshiram de 25 anos</h3>
+        <p>Preço: R$11,50</p>
+        <button>Adicionar ao Carrinho</button>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Big Cards. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
